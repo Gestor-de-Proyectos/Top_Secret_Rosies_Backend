@@ -1,1 +1,0 @@
-import {connet} from 'mongoose';
