@@ -6,11 +6,11 @@ const main = async () => {
     await conectarBD();
 
     await UserModel.create({
-        correo:"yadira.h96@gmail.com",
-        identificacion:"1234",
-        nombre:"Yadira",
-        apellido:"Henao",
-        rol: Enum_Rol.estudiante
+        correo:"bethsyfalcon@gmail.com",
+        identificacion:"5678",
+        nombre:"Bethsy",
+        apellido:"Falcon",
+        rol: Enum_Rol.lider
     })
     .then((u) => {
         console.log('usuario creado', u);        
