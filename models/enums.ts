@@ -3,5 +3,14 @@ enum Enum_Rol {
     lider = 'Líder',
     administrador = 'Administrador',
   }
+    
+  enum Enum_EstadoUsuario {
+    Pendiente = 'Pendiente',
+    Autorizado = 'Autorizado',
+    No_Autorizado = 'No_Autorizado',
+  }
   
-  export { Enum_Rol };
+  export {
+    Enum_Rol,
+    Enum_EstadoUsuario,
+  };
