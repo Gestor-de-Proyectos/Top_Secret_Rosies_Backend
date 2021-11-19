@@ -1,42 +1,41 @@
 enum Enum_Rol {
-    estudiante = 'Estudiante',
-    lider = 'Líder',
-    administrador = 'Administrador',
-  }
-    
-  enum Enum_EstadoUsuario {
-    Pendiente = 'Pendiente',
-    Autorizado = 'Autorizado',
-    No_Autorizado = 'No_Autorizado',
-  }
+  ESTUDIANTE = 'ESTUDIANTE',
+  LIDER = 'LIDER',
+  ADMINISTRADOR = 'ADMINISTRADOR',
+}
 
-  enum Enum_EstadoProyecto {
-    activo = 'Activo',
-    inactivo = 'Inactivo',
-  }
+enum Enum_EstadoUsuario {
+  PENDIENTE = 'PENDIENTE',
+  AUTORIZADO = 'AUTORIZADO',
+  NO_AUTORIZADO = 'NO_AUTORIZADO',
+}
 
-  enum Enum_FaseProyecto {
-    iniciado = 'Iniciado',
-    desarrollo = 'En Desarrollo',
-    terminado = 'Terminado',
-    nula = '',
-  }
+enum Enum_EstadoProyecto {
+  ACTIVO = 'ACTIVO',
+  INACTIVO = 'INACTIVO',
+}
 
-  enum Enum_TipoObjetivo {
-    general = 'General',
-    especifico = 'Especifico',
-  }
+enum Enum_FaseProyecto {
+  INICIADO = 'INICIADO',
+  DESARROLLO = 'DESARROLLO',
+  TERMINADO = 'TERMINADO',
+  NULO = '',
+}
 
-  enum Enum_EstadoInscripcion {
-    aceptada = 'Aceptada',
-    rechazada = 'Rechazada',
-  }
-  
-  export {
-    Enum_Rol,
-    Enum_EstadoUsuario,
-    Enum_EstadoProyecto,
-    Enum_EstadoInscripcion,
-    Enum_FaseProyecto,
-    Enum_TipoObjetivo
-  };
+enum Enum_TipoObjetivo {
+  GENERAL = 'GENERAL',
+  ESPECIFICO = 'ESPECIFICO',
+}
+
+enum Enum_EstadoInscripcion {
+  aceptada = 'Aceptada',
+  rechazada = 'Rechazada',
+}
+export {
+  Enum_Rol,
+  Enum_EstadoUsuario,
+  Enum_EstadoProyecto,
+  Enum_FaseProyecto,
+  Enum_TipoObjetivo,
+  Enum_EstadoInscripcion,
+};

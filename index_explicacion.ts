@@ -11,8 +11,8 @@ const main = async () => {
         apellido: 'Henao',
         correo: 'yadira.h96@gmail.com',
         identificacion: '10371111',
-        rol: Enum_Rol.administrador,
-        estado: Enum_EstadoUsuario.Autorizado,
+        rol: Enum_Rol.ADMINISTRADOR,
+        estado: Enum_EstadoUsuario.AUTORIZADO,
       });
 
       const proyectoCreado = await ProjectModel.create({
@@ -22,9 +22,9 @@ const main = async () => {
         presupuesto: 120000,
         lider: usuarioInicial._id,
         objetivos: [
-          { descripcion: 'Este es el objetivo general', tipo: Enum_TipoObjetivo.general },
-          { descripcion: 'Este es el objetivo especifico 1', tipo: Enum_TipoObjetivo.especifico },
-          { descripcion: 'Este es el objetivo especifico 2', tipo: Enum_TipoObjetivo.especifico },
+          { descripcion: 'Este es el objetivo general', tipo: Enum_TipoObjetivo.GENERAL },
+          { descripcion: 'Este es el objetivo especifico 1', tipo: Enum_TipoObjetivo.ESPECIFICO },
+          { descripcion: 'Este es el objetivo especifico 2', tipo: Enum_TipoObjetivo.ESPECIFICO },
         ],
       });
 
