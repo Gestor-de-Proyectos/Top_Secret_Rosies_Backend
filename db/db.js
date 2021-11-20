@@ -2,9 +2,7 @@ import { connect } from 'mongoose';
 // const { connect } = require('mongoose');
 
 const conectarBD = async () => {
-  return await connect(
-    'mongodb+srv://yadirah:tsr123@topsecretrosies.8iwmh.mongodb.net/GestionProyectos?retryWrites=true&w=majority'
-  )
+  return await connect(process.env.DATABASE_URL)
     .then(() => {
       console.log('Conexion exitosa');
     })

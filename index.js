@@ -1,23 +1,31 @@
-import conectarBD from "./db/db";
-import { Enum_Rol } from "./models/enums";
-import { UserModel } from "./models/user";
+import express from 'express';
+import cors from 'cors';
+import { ApolloServer } from 'apollo-server-express';
+import dotenv from 'dotenv';
+import conectarBD from './db/db';
+import { typeDefs } from './graphql/types';
+import { resolvers } from './graphql/resolvers';
 
-const main = async () => {
+dotenv.config();
+
+const server = new ApolloServer ({
+    typeDefs: typeDefs,
+    resolvers: resolvers,
+});
+
+const app = express();
+
+app.use(express.json());
+
+app.use(cors());
+
+app.listen({port: process.env.PORT || 4000}, async ()=>{
     await conectarBD();
+    await server.start();
 
-    await UserModel.create({
-        correo:"yadira.h96@gmail.com",
-        identificacion:"1234",
-        nombre:"Yadira",
-        apellido:"Henao",
-        rol: Enum_Rol.estudiante
-    })
-    .then((u) => {
-        console.log('usuario creado', u);        
-    })
-    .catch ((e) => {
-        console.error('Error creando el usuario', e);
-    });
-};
+    server.applyMiddleware({ app });
 
-main();
+    console.log('servidor listo')
+
+});
+
