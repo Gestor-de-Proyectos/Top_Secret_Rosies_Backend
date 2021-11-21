@@ -3,7 +3,6 @@ import { UserModel } from './usuario.js';
 const resolversUsuario = {
   Query: {
     Usuarios: async (parent, args) => {
-      console.log('parent usuario', parent);
       const usuarios = await UserModel.find();
       return usuarios;
     },
@@ -36,6 +35,7 @@ const resolversUsuario = {
           apellido: args.apellido,
           identificacion: args.identificacion,
           correo: args.correo,
+          rol: args.rol,
           estado: args.estado,
         },
         { new: true }
