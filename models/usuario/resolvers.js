@@ -24,7 +24,6 @@ const resolversUsuario = {
       if (Object.keys(args).includes('estado')) {
         usuarioCreado.estado = args.estado;
       }
-
       return usuarioCreado;
     },
     editarUsuario: async (parent, args) => {
@@ -40,7 +39,6 @@ const resolversUsuario = {
         },
         { new: true }
       );
-
       return usuarioEditado;
     },
     eliminarUsuario: async (parent, args) => {
