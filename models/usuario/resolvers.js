@@ -2,8 +2,19 @@ import { UserModel } from './usuario.js';
 
 const resolversUsuario = {
   Query: {
-    Usuarios: async (parent, args) => {
-      const usuarios = await UserModel.find();
+    Usuarios: async (parent, args, context) => {
+      const usuarios = await UserModel.find().populate([
+        {
+          path: 'inscripciones',
+          populate: {
+            path: 'proyecto',
+            populate: [{ path: 'lider' }, { path: 'avances' }],
+          },
+        },
+        {
+          path: 'proyectosLiderados',
+        },
+      ]);
       return usuarios;
     },
     Usuario: async (parent, args) => {
@@ -24,7 +35,6 @@ const resolversUsuario = {
       if (Object.keys(args).includes('estado')) {
         usuarioCreado.estado = args.estado;
       }
-
       return usuarioCreado;
     },
     editarUsuario: async (parent, args) => {
@@ -35,12 +45,10 @@ const resolversUsuario = {
           apellido: args.apellido,
           identificacion: args.identificacion,
           correo: args.correo,
-          rol: args.rol,
           estado: args.estado,
         },
         { new: true }
       );
-
       return usuarioEditado;
     },
     eliminarUsuario: async (parent, args) => {
