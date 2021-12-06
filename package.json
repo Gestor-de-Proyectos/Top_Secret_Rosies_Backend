@@ -3,6 +3,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "type": "module",
   "dependencies": {
     "apollo-server-express": "^3.5.0",
