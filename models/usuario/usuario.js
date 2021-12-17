@@ -1,6 +1,4 @@
-
 import mongoose from 'mongoose';
-
 const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
@@ -11,8 +9,8 @@ const userSchema = new Schema({
     validate: {
       validator: (email) => {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-      },
-        message: 'El formato del correo electrónico está malo.',
+      },     
+      message: 'El formato del correo electrónico está malo.',
     },
   },
   password: {
@@ -32,9 +30,9 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  foto:{
+  foto: {
     type: String,
-    required:false,
+    required: false,
   },
   rol: {
     type: String,
