@@ -51,16 +51,12 @@ const resolversUsuario = {
       );
       return usuarioEditado;
     },
-
-    editarPerfil: async (parent,args) =>{
+    editarPerfil: async (parent, args) => {
       const usuarioEditado = await UserModel.findOneAndUpdate(
-        args._id,
-        {...args.campos }, 
-        { new:true }
+        args._id, { ...args.campos }, { new: true }
       );
       return usuarioEditado;
     },
-
     eliminarUsuario: async (parent, args) => {
       if (Object.keys(args).includes('_id')) {
         const usuarioEliminado = await UserModel.findOneAndDelete({ _id: args._id });
