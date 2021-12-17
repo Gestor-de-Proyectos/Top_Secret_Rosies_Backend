@@ -1,5 +1,5 @@
 import conectarBD from "./db/db";
-import { Enum_EstadoUsuario, Enum_TipoObjetivo, Enum_Rol } from "./models/enums";
+import { Enum_EstadoUsuario, Enum_TipoObjetivo, Enum_Rol} from "./models/enums/tipos";
 import { UserModel } from "./models/user";
 import { ProjectModel } from "./models/project";
 
