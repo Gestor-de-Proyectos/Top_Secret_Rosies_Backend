@@ -1,5 +1,5 @@
 import { InscriptionModel } from '../inscripcion/inscripcion.js';
-import { UserModel } from '../../models/usuario/usuario.js';
+import { UserModel } from '../usuario/usuario.js';
 import { ProjectModel } from './proyecto.js';
 
 const resolversProyecto = {
@@ -24,8 +24,8 @@ const resolversProyecto = {
           const proyectos = await ProjectModel.find({ lider: context.userData._id });
           return proyectos;
         } else if (context.userData.rol === 'LIDER') {
-       }
       }
+    }
       const proyectos = await ProjectModel.find();
       return proyectos;
     },

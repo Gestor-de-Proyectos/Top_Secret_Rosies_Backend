@@ -9,7 +9,7 @@ const userSchema = new Schema({
     validate: {
       validator: (email) => {
         return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-      },     
+      },    
       message: 'El formato del correo electrónico está malo.',
     },
   },
@@ -30,7 +30,10 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  
+  foto: {
+    type: String,
+    required: false,
+  },
   rol: {
     type: String,
     required: true,

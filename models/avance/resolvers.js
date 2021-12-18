@@ -1,12 +1,12 @@
-import { ModeloAvance } from './avance.js';
 import { ProjectModel } from '../proyecto/proyecto.js';
+import { ModeloAvance } from './avance.js';
 
 const resolversAvance = {
   Query: {
     Avances: async (parent, args) => {
       let filter = {};
       if (args.project) {
-        filter = {...args};
+        filter = { ...args };
       }
       const avances = await ModeloAvance.find(filter).populate('proyecto').populate('creadoPor');
       return avances;
@@ -26,17 +26,19 @@ const resolversAvance = {
         proyecto: args.proyecto,
         creadoPor: args.creadoPor,
       });
-      const avances = await ModeloAvance.find({proyecto: avanceCreado.proyecto});
 
-      if (avanceCreado.length === 1) {
+      const avances = await ModeloAvance.find({ proyecto: avanceCreado.proyecto });
+
+      if (avances.length === 1) {
         const proyectoModificado = await ProjectModel.findOneAndUpdate(
-          {_id: avanceCreado.proyecto},
+          { _id: avanceCreado.proyecto },
           {
             fase: 'DESARROLLO',
           }
         );
-        console.log('proy modificado', proyectoModifiado);
+        console.log('proy modificado', proyectoModificado);
       }
+
       return avanceCreado;
     },
     crearObservacion: async(parents, args) => {
