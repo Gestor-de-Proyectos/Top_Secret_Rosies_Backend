@@ -25,7 +25,6 @@ const tiposUsuario = gql`
     nombre: String
     apellido: String
     identificacion: String
-    foto: String
   }
   type Query {
     Usuarios(filtro: FiltroUsuarios): [Usuario]
